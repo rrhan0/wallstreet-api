@@ -1,7 +1,6 @@
 
 import click
 import json
-import requests
 
 
 @click.group(name="stock")
@@ -18,4 +17,15 @@ def show_stocks(page, limit, filter_ticker):
     print(limit)
     print(filter_ticker)
 
-# todo add calc cmd
+
+@stock_cmd.command(name="calc")
+@click.option('--ticker', required=True)
+@click.option('--roi', required=True)
+@click.option('--expected-growth-rate', required=True)
+@click.option('--pe', required=True)
+def calc_stocks(ticker, roi, expected_growth_rate, pe):
+    print(ticker)
+    print(roi)
+    print(expected_growth_rate)
+    print(pe)
+    #EPS * (1 + expected_growth_rate) * pe
